@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laragigs</title>
-</head>
-
-<body>
-
+@section('content')
     <h1>{{ $heading }}</h1>
 
     @unless (count($listings) == 0)
-
-
         @foreach ($listings as $listing)
             <h2>
-                <a
-                    href="/listings/{{ $listing['id'] }}">
+                <a href="/listings/{{ $listing['id'] }}">
                     {{ $listing['title'] }}
                 </a>
             </h2>
@@ -27,7 +16,4 @@
         <p>No listings found.</p>
     @endunless
 
-</body>
-
-
-</html>
+@endsection
