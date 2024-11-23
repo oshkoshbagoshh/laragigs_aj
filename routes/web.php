@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 //  All listings
- Route::get('/', function () {
+Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
         'listings' => Listing::all()
