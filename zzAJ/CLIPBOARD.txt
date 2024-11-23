@@ -2,9 +2,10 @@
 **	AJ Javadi
 **	Created	11/23/2024
 **	/Users/aj/Herd/laragigs/zzAJ/CLIPBOARD.txt
-** Notes:
+**  Notes:
 */
 
+TODO: Postman curl automation testing, QA, data, theme, api,
 
 
 - web PHP
