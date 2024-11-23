@@ -5,7 +5,7 @@
 **  Notes:
 */
 
-TODO: Postman curl automation testing, QA, data, theme, api,
+TODO: Postman curl automation testing, QA, data, theme, api, heroku, git
 
 
 - web PHP
