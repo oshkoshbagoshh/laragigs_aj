@@ -6,6 +6,8 @@
 */
 
 TODO: Postman curl automation testing, QA, data, theme, api, heroku, git
+TODO: add custom CSS
+
 
 
 - web PHP
