@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use id;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -53,6 +55,9 @@ class ListingController extends Controller
         if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
+
+        // add User ID (off currently logged in user)
+        $formFields['user_id'] = Auth::id();
 
         Listing::create($formFields);
 

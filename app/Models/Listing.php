@@ -18,7 +18,12 @@ class Listing extends Model
         'email',
         'description',
         'tags',
-        'logo'
+        'logo',
+        'user_id'
+    ];
+
+    protected $attributes = [
+        'user_id' => null, // default values for user id
     ];
 
 

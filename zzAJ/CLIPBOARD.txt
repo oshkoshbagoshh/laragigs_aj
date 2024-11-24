@@ -34,6 +34,7 @@ TODO: allow users to add avatar
 
 
 
+
 - web PHP
 
 <?php
@@ -91,3 +92,220 @@ Route::get('/posts', function() {
 
 ==================
 
+PHP ARTISAN TINKER:
+
+aj@AJ-21-MacBook-Pro laragigs % php artisan tinker
+Psy Shell v0.12.4 (PHP 8.3.12 — cli) by Justin Hileman
+> \App\Models\Listing::first();
+= App\Models\Listing {#5618
+    id: 1,
+    user_id: 7,
+    title: "Similique omnis sunt non.",
+    logo: "https://via.placeholder.com/640x480.png/004466?text=unde",
+    tags: "laravel, api, backend",
+    company: "Hoeger-Crona",
+    location: "Thelmabury",
+    email: "ashlynn.champlin@parisian.com",
+    website: "http://www.zboncak.org/repellendus-quaerat-voluptatem-quo-porro",
+    description: "Qui nihil eum voluptate dolor. Ut ut tempora ea enim molestiae ut optio placeat. Ratione sint totam reiciendis voluptatem ut nisi. Laborum veniam rem est ut et aliquam. Ea aspernatur laboriosam atque est. Voluptatum alias amet optio et error tempora. Voluptatem accusamus sed minus quia porro.",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+> \App\Models\Listing::find(3);
+= App\Models\Listing {#5267
+    id: 3,
+    user_id: 7,
+    title: "Qui modi unde alias autem eius id.",
+    logo: "https://via.placeholder.com/640x480.png/00ffbb?text=dolor",
+    tags: "laravel, api, backend",
+    company: "Green-Blanda",
+    location: "Zettaberg",
+    email: "shanna.kovacek@dach.com",
+    website: "http://www.barton.com/esse-voluptatem-ullam-sit-deleniti-alias-dolorem",
+    description: "Distinctio nulla velit ullam voluptatem perferendis. Autem quam sint deserunt in quia cumque accusantium rem. Occaecati voluptas maiores porro excepturi. Quos animi et tempore.",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+  }
+
+> \App\Models\Listing::find(3)->user;
+= App\Models\User {#6027
+    id: 7,
+    name: "John Doe",
+    email: "john@gmail.com",
+    email_verified_at: "2024-11-24 07:43:13",
+    #password: "$2y$12$BJTGM8yOvhwxNyzWb5xOieyTC5EiZPCM.oQ2Gy29hcN1fInJj0Dwq",
+    #remember_token: "2FTIBBwzh2",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+  }
+
+> $user = \App\Models\User::first();
+= App\Models\User {#5273
+    id: 1,
+    name: "Beau Cummings",
+    email: "dhand@example.org",
+    email_verified_at: "2024-11-24 07:43:13",
+    #password: "$2y$12$BJTGM8yOvhwxNyzWb5xOieyTC5EiZPCM.oQ2Gy29hcN1fInJj0Dwq",
+    #remember_token: "ScsNQ2fteX",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+  }
+
+> $user->listings();
+= Illuminate\Database\Eloquent\Relations\HasMany {#6251}
+
+> $user::listings();
+
+   Error  Non-static method App\Models\User::listings() cannot be called statically.
+
+> $user->listings
+= Illuminate\Database\Eloquent\Collection {#6246
+    all: [],
+  }
+
+> $user->listings();
+= Illuminate\Database\Eloquent\Relations\HasMany {#5272}
+
+> $user->listings;
+= Illuminate\Database\Eloquent\Collection {#6246
+    all: [],
+  }
+
+> $user->listings();
+= Illuminate\Database\Eloquent\Relations\HasMany {#6263}
+
+> $user;
+= App\Models\User {#5273
+    id: 1,
+    name: "Beau Cummings",
+    email: "dhand@example.org",
+    email_verified_at: "2024-11-24 07:43:13",
+    #password: "$2y$12$BJTGM8yOvhwxNyzWb5xOieyTC5EiZPCM.oQ2Gy29hcN1fInJj0Dwq",
+    #remember_token: "ScsNQ2fteX",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+    listings: Illuminate\Database\Eloquent\Collection {#6246
+      all: [],
+    },
+  }
+
+> $user = \App\Models\User::find(7);
+= App\Models\User {#6254
+    id: 7,
+    name: "John Doe",
+    email: "john@gmail.com",
+    email_verified_at: "2024-11-24 07:43:13",
+    #password: "$2y$12$BJTGM8yOvhwxNyzWb5xOieyTC5EiZPCM.oQ2Gy29hcN1fInJj0Dwq",
+    #remember_token: "2FTIBBwzh2",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+  }
+
+> $user
+= App\Models\User {#6254
+    id: 7,
+    name: "John Doe",
+    email: "john@gmail.com",
+    email_verified_at: "2024-11-24 07:43:13",
+    #password: "$2y$12$BJTGM8yOvhwxNyzWb5xOieyTC5EiZPCM.oQ2Gy29hcN1fInJj0Dwq",
+    #remember_token: "2FTIBBwzh2",
+    created_at: "2024-11-24 07:43:13",
+    updated_at: "2024-11-24 07:43:13",
+  }
+
+> $user->listings();
+= Illuminate\Database\Eloquent\Relations\HasMany {#5270}
+
+> $user->listings;
+= Illuminate\Database\Eloquent\Collection {#6283
+    all: [
+      App\Models\Listing {#6284
+        id: 1,
+        user_id: 7,
+        title: "Similique omnis sunt non.",
+        logo: "https://via.placeholder.com/640x480.png/004466?text=unde",
+        tags: "laravel, api, backend",
+        company: "Hoeger-Crona",
+        location: "Thelmabury",
+        email: "ashlynn.champlin@parisian.com",
+        website: "http://www.zboncak.org/repellendus-quaerat-voluptatem-quo-porro",
+        description: "Qui nihil eum voluptate dolor. Ut ut tempora ea enim molestiae ut optio placeat. Ratione sint totam reiciendis voluptatem ut nisi. Laborum veniam rem est ut et aliquam. Ea aspernatur laboriosam atque est. Voluptatum alias amet optio et error tempora. Voluptatem accusamus sed minus quia porro.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+      App\Models\Listing {#6285
+        id: 2,
+        user_id: 7,
+        title: "Et porro sint incidunt libero sapiente enim quasi rem.",
+        logo: "https://via.placeholder.com/640x480.png/00aa99?text=adipisci",
+        tags: "laravel, api, backend",
+        company: "Koss, Sauer and Mayer",
+        location: "Marshallton",
+        email: "katrine.altenwerth@jacobi.com",
+        website: "http://www.roberts.com/architecto-modi-libero-qui-impedit-adipisci-nemo-ut",
+        description: "Necessitatibus deleniti porro repellat ut rem repudiandae. Voluptas eligendi voluptate saepe fugit dolorem ut. Vel id eum quae et. Saepe non facer
+e ducimus alias occaecati corporis.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+      App\Models\Listing {#6286
+        id: 3,
+        user_id: 7,
+        title: "Qui modi unde alias autem eius id.",
+        logo: "https://via.placeholder.com/640x480.png/00ffbb?text=dolor",
+        tags: "laravel, api, backend",
+        company: "Green-Blanda",
+        location: "Zettaberg",
+        email: "shanna.kovacek@dach.com",
+        website: "http://www.barton.com/esse-voluptatem-ullam-sit-deleniti-alias-dolorem",
+        description: "Distinctio nulla velit ullam voluptatem perferendis. Autem quam sint deserunt in quia cumque accusantium rem. Occaecati voluptas maiores porro exc
+epturi. Quos animi et tempore.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+      App\Models\Listing {#6287
+        id: 4,
+        user_id: 7,
+        title: "In ut sint adipisci aut est et a.",
+        logo: "https://via.placeholder.com/640x480.png/0011ee?text=ad",
+        tags: "laravel, api, backend",
+        company: "Ryan-Effertz",
+        location: "Huelsshire",
+        email: "teagan97@hand.com",
+        website: "http://www.hartmann.com/rem-aut-ut-velit-tempore.html",
+        description: "Consequuntur fugit dignissimos ipsa velit consequuntur perferendis velit. Explicabo similique facilis tenetur eius reprehenderit accusamus volupta
+tem quaerat. Et consequatur minus ut qui consectetur ipsam. Corrupti voluptatem rem quisquam sed hic et. In consectetur maiores at ipsa distinctio.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+      App\Models\Listing {#6288
+        id: 5,
+        user_id: 7,
+        title: "Eum sed unde amet consectetur.",
+        logo: "https://via.placeholder.com/640x480.png/0044cc?text=maxime",
+        tags: "laravel, api, backend",
+        company: "Lockman-Walker",
+        location: "Elinoreborough",
+        email: "hquigley@hayes.biz",
+        website: "http://www.funk.com/dolor-voluptatem-enim-quidem-porro-ab-deserunt-id",
+        description: "Nulla suscipit est corporis est atque. Culpa dolor voluptas quae expedita. Sint quaerat consequatur ratione dolorem qui. Eveniet aut perspiciatis
+repellendus numquam eaque cupiditate.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+      App\Models\Listing {#6289
+        id: 6,
+        user_id: 7,
+        title: "Velit illo est nam possimus modi dignissimos nihil.",
+        logo: "https://via.placeholder.com/640x480.png/00eecc?text=eos",
+        tags: "laravel, api, backend",
+        company: "Frami-Langosh",
+        location: "Hillville",
+        email: "rebeca72@collier.net",
+        website: "https://vandervort.com/similique-voluptatem-voluptas-repellat-quisquam-sint-velit.html",
+        description: "Fuga soluta officiis ea. Praesentium eius nulla dolorem temporibus velit sed perspiciatis. Quisquam sed et nobis autem. Non soluta reiciendis dign
+issimos facere. Quod nihil explicabo placeat dolores qui provident.",
+        created_at: "2024-11-24 07:43:13",
+        updated_at: "2024-11-24 07:43:13",
+      },
+    ],
+  }
