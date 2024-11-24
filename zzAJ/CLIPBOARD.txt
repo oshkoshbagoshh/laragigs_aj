@@ -23,6 +23,8 @@ TODO: refactor with getters and setters
 TODO: SQL queries / views / stored procedures
 TODO: slack webhook URL
 TODO: allow users to add avatar
+TODO: format text area input as markdown / html
+
 
 
 
