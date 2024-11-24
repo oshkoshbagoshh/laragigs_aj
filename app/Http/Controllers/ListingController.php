@@ -14,7 +14,7 @@ class ListingController extends Controller
         return view('listings.index', [
             'listings' => Listing::latest()
                 ->filter(request(['tag', 'search']))
-                ->get()
+                ->paginate(6)
         ]);
     }
 
@@ -34,9 +34,11 @@ class ListingController extends Controller
     }
 
     // Store Listing Data
-    public function store(Request $requst)
+    public function store(Request $request)
     {
-        $formFields = $requst->validate([
+    
+
+        $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
             'location' => 'required',
