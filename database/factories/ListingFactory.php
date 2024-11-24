@@ -24,7 +24,7 @@ class ListingFactory extends Factory
             'location' => $this->faker->city(),
             'website' => $this->faker->url(),
             'description' => $this->faker->paragraph(5),
-            'logo' => $this->faker->imageUrl()
+            // 'logo' => $this->faker->imageUrl()
 
         ];
     }
