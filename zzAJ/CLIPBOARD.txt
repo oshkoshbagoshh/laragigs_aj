@@ -25,6 +25,11 @@ TODO: slack webhook URL
 TODO: allow users to add avatar
 TODO: format text area input as markdown / html
 
+============
+TODO: edit all gigs to have user ID of 9
+TODO: scroll to top
+TODO: fix text area
+
 
 
 
