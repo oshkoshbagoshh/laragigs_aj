@@ -18,6 +18,15 @@ TODO: image optimization
 TODO: requirements
 TODO: strtoupper for tags
 TODO: quiz / signup
+TODO: format job posting template
+TODO: refactor with getters and setters
+TODO: SQL queries / views / stored procedures
+TODO: slack webhook URL
+TODO: allow users to add avatar
+
+
+
+
 
 
 

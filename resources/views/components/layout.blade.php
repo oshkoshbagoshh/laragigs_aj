@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{{-- HEAD --}}
 
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        {{-- TODO: add meta tags --}}
+    {{-- TODO: add meta tags --}}
     <script src="https://cdn.tailwindcss.com"></script>
     {{-- ALPINE JS --}}
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -24,9 +25,10 @@
             },
         };
     </script>
+    {{-- TODO: Make Dynamic --}}
     <title>LaraGigs | Find Laravel Jobs & Projects</title>
 </head>
-{{-- HEAD --}}
+
 
 {{-- NAV --}}
 
@@ -34,17 +36,44 @@
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-24" src="{{ asset('images/logo.png') }}" alt="" class="logo" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
-            <li>
-                <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-            </li>
-            <li>
-                <a href="login.html" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Login</a>
-            </li>
+            {{-- authorized users only --}}
+            @auth
+                <span class="font-bold uppercase">
+                    Welcome {{ auth()->user()->name }}
+                </span>
+
+                <li>
+                    <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                        Manage Listings
+                    </a>
+                </li>
+
+                {{-- Logout --}}
+                <li>
+                    <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i>
+                        Logout
+                    </button>
+                    </form>
+                </li>
+                @else
+                {{-- Guest users (not authorized) --}}
+                <li>
+                    <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
+                </li>
+
+                <li>
+                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Login</a>
+                </li>
+
+            @endauth
+
+
         </ul>
     </nav>
-    {{--  --}}
-
 
     <main>
 
