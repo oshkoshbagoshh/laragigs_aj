@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relationship with Listings. One User can have many listings
+    public function listings()
+    {
+        return $this->hasMany(Listing::class, 'user_id');
+    }
+
+
 }
