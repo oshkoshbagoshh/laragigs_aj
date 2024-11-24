@@ -7,6 +7,21 @@
 
 TODO: Postman curl automation testing, QA, data, theme, api, heroku, git
 TODO: add custom CSS
+TODO: rename images / file renaming of uploaded images
+TODO: geocode / zipcode integration (open Maps API)
+TODO: search by location
+TODO: salary
+TODO: upload resume
+TODO: reports
+TODO: dashboard
+TODO: image optimization
+TODO: requirements
+TODO: strtoupper for tags
+TODO: quiz / signup
+
+
+
+
 
 
 

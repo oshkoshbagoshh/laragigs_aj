@@ -9,15 +9,20 @@ use Illuminate\Support\Facades\Route;
  *
  */
 
-//  All listings
+//  All Listings
 Route::get('/', [ListingController::class, 'index']);
 
-// Show create form to create a gig
+// Show Create form to create a gig
 Route::get('/listings/create', [ListingController::class, 'create']);
 
-// Store listing date
+// Store Listing date
 Route::post('/listings', [ListingController::class, 'store']);
 
+// Show Edit Form
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+// Update Listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
 
 
